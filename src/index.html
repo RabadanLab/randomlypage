@@ -22,14 +22,69 @@
 <body>
 
   <div class="container">
+
+    <div class="navbar-spacer"></div>
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="#intro">Intro</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="https://github.com/RabadanLab/randomly">Github</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="https://rabadan.c2b2.columbia.edu/">Rabadan Lab</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="row">
-      <div class="one-half column" style="margin-top: 25%">
-        <h4>Basic Page</h4>
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
-        <p id="myid1" class="hello"></p>
+        <div class="one-half column" style="margin-top: 25%">
+          <img src="<%=require('./img/Randomly.png')%>">
+          <h3>Randomly</h3>
+          <p><strong><i>A Python Package for Denoising Single Cell Data</i></strong></p>
+          <a class="button" href="https://github.com/RabadanLab/randomly">DOWNLOAD ON GITHUB</a>
+        </div>
+        <div class="one-half column" style="margin-top: 15%">
+          <p><strong>Randomly</strong> is a python package from the <a href="https://rabadan.c2b2.columbia.edu/">Rabadan Lab</a> for denoising single cell data with random matrix theory.</p>
+
+          <p>It's easy to download and install. <a href="https://github.com/RabadanLab/randomly">Get it on Github</a>.</p>
+
+          <!--
+          <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+          <p id="myid1" class="hello"></p>
+          -->
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="one-half column">
+        &nbsp;
+      </div>
+      <div class="one-half column">
+        <img class="imgstyle1" src="<%=require('./img/mp.png')%>">
       </div>
     </div>
-  </div>
+
+    <div class="row">
+      <div class="one-half column">
+        &nbsp;
+      </div>
+      <div class="one-half column">
+        <img class="imgstyle1" src="<%=require('./img/statistics.png')%>">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="one-half column">
+        &nbsp;
+      </div>
+      <div class="one-half column">
+        <img class="imgstyle1" src="<%=require('./img/tsne.png')%>">
+      </div>
+    </div>
+
+    <div class="row">
+      <div><a href="https://rabadan.c2b2.columbia.edu/">Rabadan Lab</a> &copy; 2018</div>
+    </div>
+
+  </div> <!-- container -->
 
 </body>
 </html>
