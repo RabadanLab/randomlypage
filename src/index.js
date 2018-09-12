@@ -3,6 +3,7 @@ import './style.css';
 import './normalize.css';
 import './skeleton.css';
 import './skeletonstyle.css';
+import timGraph from './tim.js';
 
 /*
 function component() {
@@ -14,3 +15,5 @@ function component() {
 var element2 = document.getElementById('myid1');
 element2.appendChild(component());
 */
+
+timGraph();

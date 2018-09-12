@@ -1,4 +1,6 @@
 node_modules
-dist
+tmp
+.DS_Store
 notes
-Skeleton-2.0.4
+old
+img

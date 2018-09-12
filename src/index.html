@@ -81,6 +81,30 @@
     </div>
 
     <div class="row">
+      <div class="column">
+          <div id="attachsvg"></div>
+          <div id="chart"></div>
+          <div id="menu">
+            <div>
+              Perplexity: <span id="perpVal"></span>
+            </div>
+            <br>
+            <div class="slider" id="perpSlider"></div>
+            <br>
+            <div>
+              lambda range: <span id="lambda1Val"></span> - <span id="lambda2Val"></span>
+            </div>
+            <br>
+            <div class="slider" id="lambdaSlider"></div>
+            <br>
+            <button type="button" onclick="demo_l1()">auto l1</button>
+            <button type="button" onclick="demo_l2()">auto l2</button>
+            <button type="button" onclick="interval_stop()">stop</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
       <div><a href="https://rabadan.c2b2.columbia.edu/">Rabadan Lab</a> &copy; 2018</div>
     </div>
 
