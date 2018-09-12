@@ -25,6 +25,7 @@
 <body>
   <div class="container">
     <div class="row" style="margin-top: 5%">
+
       <div class="three columns">
         <h2><a href="/">Randomly</a></h2>
         <a href="/">
@@ -32,18 +33,19 @@
         <img alt="Randomly" class="logo-width" src="<%=require('./img/Randomly.png')%>">
         </center>
         </a>
-        <a class="button u-full-width" href="#">Getting Started</a>
-        <a class="button u-full-width" href="#">Tutorials</a>
+        <a class="button u-full-width" href="#gettingstarted">Getting Started</a>
+        <a class="button u-full-width" href="#moredetail">More Detail</a>
+        <a class="button u-full-width" href="#inaction">Randomly in Action</a>
         <a class="button u-full-width" href="#authors">Authors</a>
         <a class="button u-full-width" href="#citation">Citation</a>
-        <a class="button u-full-width" href="#">Contributing</a>
         <div class="row" style="padding-bottom: 5%"> </div>
         <a class="button2 u-pull-right" href="https://github.com/RabadanLab/randomly" style="padding-right:10%">
         <span style="vertical-align:middle;">Github</span> 
               <img alt="Randomly on Github" src="<%=require('./img/github-mark.svg')%>" style="vertical-align:middle;"/>
         </a>
         <div class="row" style="padding-bottom: 5%"> </div>
-      </div>
+      </div> <!-- three columns -->
+
       <div class="nine columns">
         <h3>A library for denoising single cell data with random matrix theory</h3>
 
@@ -70,6 +72,40 @@
           </li>
         </ul>
 
+        <h4 id="gettingstarted">Getting Started</h4>
+
+        <p>some text</p>
+
+        <h4 id="moredetail">More Detail</h4>
+
+        <p>
+          some text
+          <img class="imgstyle1" src="<%=require('./img/mp.png')%>">
+        </p>
+
+        <h4 id="inaction">Randomly in Action</h4>
+        <p>
+          <div id="attachsvg"></div>
+          <div id="chart"></div>
+          <div id="menu">
+            <div>
+              Perplexity: <span id="perpVal"></span>
+            </div>
+            <br>
+            <div class="slider" id="perpSlider"></div>
+            <br>
+            <div>
+              lambda range: <span id="lambda1Val"></span> - <span id="lambda2Val"></span>
+            </div>
+            <br>
+            <div class="slider" id="lambdaSlider"></div>
+            <br>
+            <button type="button" onclick="demo_l1()">auto l1</button>
+            <button type="button" onclick="demo_l2()">auto l2</button>
+            <button type="button" onclick="interval_stop()">stop</button>
+          </div>
+        </p>
+
         <h4 id="authors">Authors</h4>
         <p>Randomly is led by Luis and Mykola.</p>
         <p>We are open to collaboration, and welcome researchers and developers to contribute. Check out the <a href="/contributing">contributing page</a> for how to improve Randomly's software.</p>
@@ -87,10 +123,14 @@
           journal = {xxx},
           year = {2018}
         }</code></pre>
-      </div>
+      </div> <!-- nine columns -->
+
+    </div> <!-- row -->
+
+    <div class="row" style="padding-bottom: 25%"> 
+      <a href="https://rabadan.c2b2.columbia.edu/">Rabadan Lab</a> &copy; 2018
     </div>
-    <div class="row" style="padding-bottom: 25%"> </div>
-  </div>
+  </div> <!-- container -->
 </body>
 
 <!--
