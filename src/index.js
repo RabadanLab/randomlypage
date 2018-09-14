@@ -46,9 +46,9 @@ noUiSlider.create(lambdaSlider, {
 
 var chartDiv = document.getElementById("chart");
 var strokeWidth = 1;
-var margin = {top: 10, right: 50, bottom: 10, left: 50}
+var margin = {top: 10, right: 10, bottom: 10, left: 10}
 var width = chartDiv.clientWidth - margin.left - margin.right ;
-var height = chartDiv.clientHeight - margin.top - margin.bottom - 20;
+var height = chartDiv.clientHeight - margin.top - margin.bottom;
 var x = d3.scaleLinear().range([0, width - margin.right]).domain([-100,100]);
 var y = d3.scaleLinear().range([0, height]).domain([100,-100]);
 

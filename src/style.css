@@ -17,7 +17,7 @@
   z-index: -1;
   */
   background-color: white;
-  height: 600px;
+  height: 400px;
   /*
   background-color: pink;
   height: 200px;
@@ -45,7 +45,7 @@ body {
 }
 
 svg {
-  outline: 2px dashed blue;
+  outline: 1px solid lightgray;
 }
 
 .noUi-handle{
