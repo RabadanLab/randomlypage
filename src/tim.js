@@ -56,7 +56,7 @@ export default function timGraph() {
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-  d3.text('https://s3.amazonaws.com/randomly-mouse-cortex-pos/classes.txt', function(error,text){
+  d3.text('https://s3.amazonaws.com/randomly-static/data/classes.txt', function(error,text){
     if (error) throw error;
 
     var colors =  d3.tsvParseRows(text);
@@ -92,7 +92,7 @@ export default function timGraph() {
       //console.log('update perp')
       perplexity = Math.trunc(perpSlider.noUiSlider.get())
       perpValue.innerHTML = perplexity;
-      d3.text("https://s3.amazonaws.com/randomly-mouse-cortex-pos/mouse_cortex_" + lambda_1 + "_" + lambda_2 + "_" + perplexity + ".txt", function(error,text){
+      d3.text("https://s3.amazonaws.com/randomly-static/data/mouse_cortex_" + lambda_1 + "_" + lambda_2 + "_" + perplexity + ".txt", function(error,text){
         if (error) throw error;
   
         var data = d3.tsvParseRows(text)
@@ -106,7 +106,7 @@ export default function timGraph() {
       lambda_2 = Math.trunc(lambdaSlider.noUiSlider.get()[1])
       lambda1Value.innerHTML = lambda_1;
       lambda2Value.innerHTML = lambda_2;
-      d3.text("https://s3.amazonaws.com/randomly-mouse-cortex-pos/mouse_cortex_" + lambda_1 + "_" + lambda_2 + "_" + perplexity + ".txt", function(error,text){
+      d3.text("https://s3.amazonaws.com/randomly-static/data/mouse_cortex_" + lambda_1 + "_" + lambda_2 + "_" + perplexity + ".txt", function(error,text){
         if (error) throw error;
 
         var data = d3.tsvParseRows(text)
@@ -122,7 +122,7 @@ export default function timGraph() {
     perpValue.innerHTML = perplexity;
     lambda1Value.innerHTML = lambda_1;
     lambda2Value.innerHTML = lambda_2;
-    d3.text("https://s3.amazonaws.com/randomly-mouse-cortex-pos/mouse_cortex_" + lambda_1 + "_" + lambda_2 + "_" + perplexity + ".txt", function(error,text){
+    d3.text("https://s3.amazonaws.com/randomly-static/data/mouse_cortex_" + lambda_1 + "_" + lambda_2 + "_" + perplexity + ".txt", function(error,text){
       if (error) throw error;
 
       var data = d3.tsvParseRows(text)
