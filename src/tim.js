@@ -3,7 +3,7 @@ import * as noUiSlider from 'nouislider'
 import './nouislider.css';
 
 export default function timGraph() {
-  var perpValue = document.getElementById("perpVal")
+  var perpValue = document.getElementById("perpVal");
   var perpSlider = document.getElementById("perpSlider");
   noUiSlider.create(perpSlider, {
     start: [30],
@@ -15,9 +15,9 @@ export default function timGraph() {
     step: 20
   });
 
-  var lambda1Value = document.getElementById("lambda1Val")
-  var lambda2Value = document.getElementById("lambda2Val")
-  var lambdaSlider = document.getElementById("lambdaSlider")
+  var lambda1Value = document.getElementById("lambda1Val");
+  var lambda2Value = document.getElementById("lambda2Val");
+  var lambdaSlider = document.getElementById("lambdaSlider");
   noUiSlider.create(lambdaSlider, {
     start: [0, 85],
     connect: true,
@@ -31,8 +31,8 @@ export default function timGraph() {
 
   var chartDiv = document.getElementById("chart");
   var strokeWidth = 1;
-  var margin = {top: 10, right: 10, bottom: 10, left: 10}
-  var width = chartDiv.clientWidth - margin.left - margin.right ;
+  var margin = {top: 10, right: 10, bottom: 10, left: 10};
+  var width = chartDiv.clientWidth - margin.left - margin.right;
   var height = chartDiv.clientHeight - margin.top - margin.bottom;
   var x = d3.scaleLinear().range([0, width - margin.right]).domain([-100,100]);
   var y = d3.scaleLinear().range([0, height]).domain([100,-100]);
