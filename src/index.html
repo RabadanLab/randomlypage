@@ -32,11 +32,11 @@
         <img alt="Randomly" class="logo-width" src="https://s3.amazonaws.com/randomly-static/img/Randomly.png">
         </center>
         </a>
-        <a class="button u-full-width" href="#gettingstarted">Getting Started</a>
+        <a class="button u-full-width" href="#intro">Overview of the Problem</a>
+        <a class="button u-full-width" href="#theory">Random Matrix Theory in 5 Minutes</a>
         <a class="button u-full-width" href="#moredetail">More Detail</a>
         <a class="button u-full-width" href="#inaction">Randomly in Action</a>
-        <a class="button u-full-width" href="#authors">Authors</a>
-        <a class="button u-full-width" href="#citation">Citation</a>
+        <a class="button u-full-width" href="#refs">References</a>
         <a class="button u-full-width" href="https://github.com/RabadanLab/randomly">
           <span>Github</span>
           <img alt="Randomly on Github" src="https://s3.amazonaws.com/randomly-static/img/github-mark.svg" style="width:25px"/>
@@ -46,48 +46,82 @@
       </div> <!-- three columns -->
 
       <div class="eight columns">
-        <h3>A library for denoising single cell data with random matrix theory</h3>
+        <h3>A Library for Denoising Single Cell Data with Random Matrix Theory</h3>
 
         <p><strong>Randomly</strong> is a python package from the <a href="https://rabadan.c2b2.columbia.edu/">Rabadan Lab</a> for denoising single cell data with random matrix theory.</p>
 
-        <p>It's easy to download and install. The instructions and package are available <a href="https://github.com/RabadanLab/randomly">on Github</a>.</p>
+        <p>Randomly is easy to download and install. The instructions and package are available <a href="https://github.com/RabadanLab/randomly">on Github</a>.</p>
 
-        <p>Some list</p>
+        <h4 id="intro">Overview of the Problem</h4>
 
         <ul>
-          <li>c</li>
-          <li>b</li>
-          <li>c</li>
-        </ul>
-
-        <p>Some other list</p>
-        <ul>
-          <li>a
+          <li>Characterizing the different cell subtypes in <b>heterogenous populations</b> and their evolution plays a central role in understanding complex systems like <b>cancer</b> or <b>immune cells</b></li>
+          <li><b>Single-cell</b> technologies<sup>1,2</sup> offer the opportunity to identify new cell types and cellular states</li>
+          <li>There are biological and technical challenges that complicate the analysis of <b>single-cell data</b>:
             <ul>
-              <li>a1</li>
-              <li>b1</li>
-              <li>c1</li>
+              <li><u>Problem 1</u>: There is a lack of a complete quantitative understanding of different sorts of <b>noise</b></li>
+              <li><u>Problem 2</u>: <b>Sparsity</b> of data due to low amounts of amplified genomic material</li>
+            </ul>
+          </li>
+          <li>Currently, there are two main methods to address these challenges:
+            <ol>
+              <li><i>Imputation of missing values</i>: try to infer the “true” expression of data samples by modeling the underlying distributions<sup>3,4</sup></li>
+              <li><i>Zero-inflated dimensionality reduction</i>: a modified-PCA method modeling the underlying distribution<sup>5,6</sup></li>
+            </ol>
+          </li>
+          <li>However, these methods make assumptions about gene expression distributions that are not well justified and may generate artifacts</li>
+          <li>To remedy this, Randomly develops a method for denoising single-cell data in a universal way:
+            <ul>
+              <li><u>Objective 1</u>: develop a statistical description of the noise in single-cell data that is insensitive to the specific details of gene expression in cells</li>
+              <li><u>Objective 2</u>: analyze and control the artifacts induced by sparsity in single-cell data</li>
             </ul>
           </li>
         </ul>
 
-        <h4 id="gettingstarted">Getting Started</h4>
+        <h4 id="theory">Random Matrix Theory in 5 Minutes</h4>
 
-        <p>some text</p>
+        <p>
+        This problem is very similar to one addressed in nuclear physics in the 1950s and later in a variety of complex systems<sup>7</sup>.
+        The statistics of these systems turns out to be described by <b>Random Matrix Theory</b> (RMT). We observed that <u>single-cell data resembles The Wigner Surmise</u>.
+        </p>
+
+        <ul>
+          <li>For a given single-cell dataset <i>X</i> with <i>N</i> cells and <i>P</i> genes, we can define a Wishart matrix:
+            <br><br>
+            <div id="eqn1" class="centerme"></div>
+            <br>
+            All the properties of <i>W</i> are described by its eigenvalues <span id="eqn2"></span> and eigenvectors <span id="eqn3"></span> in the form:
+            <br><br>
+            <div id="eqn4" class="centerme"></div>
+            <br>
+            If X is a random matrix, then there are some universal statistical features:
+            <ol>
+              <li>Eigenvalue density follows the <b>Marcheko-Pastur</b> (MP) distribution</li>
+              <li>The largest eigenvalue is described by the <b>Tracy-Widom</b> distribution</li>
+              <li>Eigenvectors are <b>delocalized</b></li>
+            </ol>
+          </li>
+          <li>Universality means that the statistical features are independent of the gene expression distribution. They only depend on the finiteness of the first few moments<sup>8,9</sup></li>
+        </ul>
 
         <h4 id="moredetail">More Detail</h4>
 
+        <p>Deviations from universal eigenvalue distributions indicate the presence of a signal that can be further analyzed.</p>
+        <p>The appearance of localized eigenvectors also indicates the presence of a signal. Sparsity of single-cell data generates an artifactual signal that can be removed by studying the eigenvector statistics.</p>
         <p>
-          some text
-          <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/mp.png">
-          some text
-          <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/statistics.png">
-          some text
-          <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/tsne.png">
-          <!--
-          <img class="imgstyle1" src="<%=require('./img/mp.png')%>">
-          -->
+        Randomly applies the universality features of Sparse Random Matrix Theory<sup>10,11</sup> to separate noise and signal in a single-cell transcriptomics dataset of 6573 peripheral blood mononuclear cells (PBMC)<sup>12</sup>.
+        We have studied the sparsity induced localization to remove sparse signal in the dataset.
+        The following are examples.
         </p>
+        
+        <p>Separation of noise and signal using universality of MP and Tracy-Widom distributions:</p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/mp.png"></p>
+
+        <p>Selection of genes which are most responsible for signal using chi-squared test for variance:</p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/statistics.png"></p>
+
+        <p>Clustering and population analysis after denoising using RMT algorithm:</p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/tsne.png"></p>
 
         <h4 id="inaction">Randomly in Action</h4>
         <p>
@@ -112,22 +146,22 @@
           </div>
         </p>
 
-        <h4 id="authors">Authors</h4>
-        <p>Randomly is led by Luis and Mykola.</p>
+        <h4 id="refs">References</h4>
+        <ol>
+          <li>L. Bintu et al., Dynamics of epigenetic regulation at the single-cell level. <i>Science</i> <b>351</b>, 720-724 (2016)</li>
+          <li>J. Cao et al., Comprehensive single-cell transcriptional profiling of a multicellular organism. <i>Science</i> <b>357</b>, 661-667 (2017)</li>
+          <li>D. van Dijk et al., Recovering Gene Interactions from Single-Cell Data Using Data Diffusion. <i>Cell</i> <b>174</b>, 716-+ (2018)</li>
+          <li>W. V. Li, J. Y. J. Li, An accurate and robust imputation method scImpute for single-cell RNA-seq data. <i>Nat Commun</i> <b>9</b>,  (2018)</li>
+          <li>E. Pierson, C. Yau, ZIFA: Dimensionality reduction for zero-inflated single-cell gene expression analysis. <i>Genome Biol</i> <b>16</b>,  (2015)</li>
+          <li>D. Risso, F. Perraudeau, S. Gribkova, S. Dudoit, J. P. Vert, A general and flexible method for signal extraction from single-cell RNA-seq data. <i>Nat Commun</i> <b>9</b>,  (2018)</li>
+          <li>F. J. Dyson, Statistical Theory of Energy Levels of Complex Systems .1. <i>J Math Phys</i> <b>3</b>, 140-& (1962)</li>
+          <li>T. Tao, V. Vu, Random Matrices: Universality of Local Eigenvalue Statistics up to the Edge. <i>Commun Math Phys</i> <b>298</b>, 549-572 (2010)</li>
+          <li>N. S. Pillai, J. Yin, Universality of Covariance Matrices. <i>Ann Appl Probab</i> <b>24</b>, 935-1001 (2014)</li>
+          <li>Y. V. Fyodorov, A. D. Mirlin, Localization in ensemble of sparse random matrices. <i>Phys Rev Lett</i> <b>67</b>, 2049-2052 (1991)</li>
+          <li>S. N. Evangelou, E. N. Economou, Spectral Density Singularities, Level Statistics, and Localization in a Sparse Random Matrix Ensemble. <i>Physical Review Letters</i> <b>68</b>, 361-364 (1992)</li>
+          <li>H. M. Kang et al., Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. <i>Nat Biotechnol</i> <b>36</b>, 89-94 (2018)</li>
+        </ol>
 
-        <h4 id="citation">Citation</h4>
-        <p>To cite Randomly, use the following reference:</p>
-
-        <blockquote>
-        <p>Luis, Myokla. 2018. <a href="#"><em>Title.</em></a> reference.</p>
-
-        </blockquote>
-        <pre class="JSON"><code>@article{title,
-          author = {zzz},
-          title = {{yyy}},
-          journal = {xxx},
-          year = {2018}
-        }</code></pre>
       </div> <!-- nine columns -->
 
     </div> <!-- row -->

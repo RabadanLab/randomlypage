@@ -4,6 +4,7 @@ import './normalize.css';
 import './skeleton.css';
 import './skeletonstyle.css';
 import timGraph from './tim.js';
+import renderMath from './rendermath.js';
 
 /*
 function component() {
@@ -17,3 +18,4 @@ element2.appendChild(component());
 */
 
 timGraph();
+renderMath();

@@ -48,20 +48,24 @@ svg {
   outline: 1px solid lightgray;
 }
 
-.noUi-handle{
+.noUi-handle {
   width: 10px !important;
   right: -5px !important;
   top: -9px !important;
 }
 
-.noUi-handle::before{
+.noUi-handle::before {
   left: 5px !important;
 }
 
-.noUi-handle::after{
+.noUi-handle::after {
   left: 2px !important;
 }
 
-.noUi-horizontal{
+.noUi-horizontal {
   height: 12px !important;
+}
+
+.centerme {
+  text-align: center;
 }
