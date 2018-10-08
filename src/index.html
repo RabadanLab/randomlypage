@@ -37,7 +37,8 @@
         <a class="button u-full-width" href="#theory">Random Matrix Theory in 1 Minute</a>
         <a class="button u-full-width" href="#moredetail">More Detail</a>
         <a class="button u-full-width" href="#examp">An Example</a>
-        <a class="button u-full-width" href="#inaction">Randomly in Action</a>
+        <a class="button u-full-width" href="#inaction">Randomly Interactive Demo</a>
+        <a class="button u-full-width" href="#cite">Citation</a>
         <a class="button u-full-width" href="#refs">References</a>
         <!--
         <a class="button u-full-width" href="https://github.com/RabadanLab/randomly">
@@ -54,7 +55,7 @@
 
         <p><strong>Randomly</strong> is a python package from the <a href="https://rabadan.c2b2.columbia.edu/">Rabadan Lab</a> for denoising single-cell data using <b>Random Matrix Theory</b>.</p>
 
-        <p>Randomly will soon be freely available on github (we're just finalizing the code). <i>Stay tuned!</i></p>
+        <p>Randomly will soon be freely available on github (we're just finalizing the code. <i>Stay tuned!)</i></p>
 
         <h4 id="intro">Overview of the Problem</h4>
 
@@ -154,23 +155,54 @@
         <h4 id="examp">An Example</h4>
 
         <p>
-        Randomly applies the universality features of Sparse Random Matrix Theory<sup>10,11</sup> to separate noise and signal in a single-cell transcriptomics dataset of 6573 peripheral blood mononuclear cells (PBMC)<sup>12</sup>.
-        We have studied the sparsity induced localization to remove sparse signal in the dataset.
-        The following are examples.
+        As an example, we consider single-cell transcriptomic data from a set of 6,573 peripheral blood mononuclear cells (PBMC)<sup>12</sup>.
         </p>
-        
-        <p>Separation of noise and signal using universality of MP and Tracy-Widom distributions:</p>
-        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/mp.png"></p>
 
-        <p>Selection of genes which are most responsible for signal using chi-squared test for variance:</p>
-        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/statistics.png"></p>
+        <p>
+        Randomly applies the universality features of Sparse Random Matrix Theory<sup>10,11</sup> to separate noise and signal in single-cell data.
+        The Randomly analysis consists of three main steps:
+        </p>
 
-        <p>Clustering and population analysis after denoising using RMT algorithm:</p>
-        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/tsne.png"></p>
+        <ul>
+          <li>
+          Separation of noise and signal using universality of MP and Tracy-Widom distributions:
+          <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/mp.png">
+          </li>
 
-        <h4 id="inaction">Randomly in Action</h4>
+          <li>
+          Removal of the sparse signal in the dataset by studying the sparsity induced localization
+          </li>
 
-        <p>(mouse cortex)</p>
+          <li>
+          Selection of the genes which are most responsible for signal.
+          To accomplish this, we project the genes into signal and noise components, and then study the sample variance via a chi-squared test.
+          From that, we establish a false discovery rate to identify genes that generate signal:
+          <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/geneprojection.png">
+          </li>
+        </ul>
+
+        <p>
+        We have projected out the noise and selected the top 1,000 genes most responsible for signal according to the step just described.
+        We use these projected genes to do a standard hierarchical clustering and visualize it using t-SNE.
+        We compare our clustering with the cell labels provided in references [12] and [13].
+        <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/clustering.png">
+        </p>
+
+        <p>
+        We compare the performance of Randomly (RMT) with other algorithms in terms of cell-phenotype cluster resolution.
+        For completeness, we also compare with the raw data and with a selection of the top 300 genes based on highest variance (300 mvg).
+        Provided known cell-phenotypes from [13], the mean silhouette score quantifies the cluster resolution.
+        The comparison is performed as a function of the reduced-space number of dimensions (number of principal components).
+        <br>
+        <br>
+        <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/comparison.png">
+        </p>
+
+        <h4 id="inaction">Randomly Interactive Demo</h4>
+
+        <p>
+        The following demo shows a t-SNE visualization of phenotypes of mouse-cortex cells provided in [14].
+        </p>
 
         <p>
           <div id="attachsvg"></div>
@@ -194,6 +226,20 @@
           </div>
         </p>
 
+        <h4 id="cite">Citation</h4>
+
+        <p>
+        For now, you can cite the Randomly preprint as:
+        </p>
+
+        </p>
+        <b>Quasi-universality in single-cell sequencing data</b>.
+        <br>
+        Luis Aparicio, Mykola Bordyuh, Andrew J. Blumberg, Raul Rabadan.
+        <br>
+        <a href="https://www.biorxiv.org/content/early/2018/10/05/426239"><i>biorXiv preprint</i> doi.org/10.1101/426239 (2018)</a>.
+        </p>
+
         <h4 id="refs">References</h4>
         <ol>
           <li>L. Bintu et al., Dynamics of epigenetic regulation at the single-cell level. <i>Science</i> <b>351</b>, 720-724 (2016)</li>
@@ -208,6 +254,8 @@
           <li>Y. V. Fyodorov, A. D. Mirlin, Localization in ensemble of sparse random matrices. <i>Phys Rev Lett</i> <b>67</b>, 2049-2052 (1991)</li>
           <li>S. N. Evangelou, E. N. Economou, Spectral Density Singularities, Level Statistics, and Localization in a Sparse Random Matrix Ensemble. <i>Physical Review Letters</i> <b>68</b>, 361-364 (1992)</li>
           <li>H. M. Kang et al., Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. <i>Nat Biotechnol</i> <b>36</b>, 89-94 (2018)</li>
+          <li>A. Butler, P. Hoffman, P. Smibert, E. Papalexi, R. Satija, Integrating single-cell transcriptomic data across different conditions, technologies, and species. <i>Nature Biotechnology</i> <b>36</b>, 411-+ (2018)</li>
+          <li>Amit Zeisel, Ana B. Muñoz-Manchado, Simone Codeluppi et al. Cell types in the mouse cortex and hippocampus revealed by single-cell rna-seq. <i>Science</i>, <b>347(6226)</b> 1138–1142, 2015</li>
         </ol>
 
       </div> <!-- nine columns -->
