@@ -33,24 +33,28 @@
         </center>
         </a>
         <a class="button u-full-width" href="#intro">Overview of the Problem</a>
-        <a class="button u-full-width" href="#theory">Random Matrix Theory in 5 Minutes</a>
+        <a class="button u-full-width" href="#idea">The Idea</a>
+        <a class="button u-full-width" href="#theory">Random Matrix Theory in 1 Minute</a>
         <a class="button u-full-width" href="#moredetail">More Detail</a>
+        <a class="button u-full-width" href="#examp">An Example</a>
         <a class="button u-full-width" href="#inaction">Randomly in Action</a>
         <a class="button u-full-width" href="#refs">References</a>
+        <!--
         <a class="button u-full-width" href="https://github.com/RabadanLab/randomly">
           <span>Github</span>
           <img alt="Randomly on Github" src="https://s3.amazonaws.com/randomly-static/img/github-mark.svg" style="width:25px"/>
         </a>
+        -->
         <div class="row" style="padding-bottom: 5%"> </div>
         <div class="row" style="padding-bottom: 5%"> </div>
       </div> <!-- three columns -->
 
       <div class="eight columns">
-        <h3>A Library for Denoising Single Cell Data with Random Matrix Theory</h3>
+        <h3>A Library for Denoising Single-Cell Data with Random Matrix Theory</h3>
 
-        <p><strong>Randomly</strong> is a python package from the <a href="https://rabadan.c2b2.columbia.edu/">Rabadan Lab</a> for denoising single cell data with random matrix theory.</p>
+        <p><strong>Randomly</strong> is a python package from the <a href="https://rabadan.c2b2.columbia.edu/">Rabadan Lab</a> for denoising single-cell data using <b>Random Matrix Theory</b>.</p>
 
-        <p>Randomly is easy to download and install. The instructions and package are available <a href="https://github.com/RabadanLab/randomly">on Github</a>.</p>
+        <p>Randomly will soon be freely available on github (we're just finalizing the code). <i>Stay tuned!</i></p>
 
         <h4 id="intro">Overview of the Problem</h4>
 
@@ -59,7 +63,7 @@
           <li><b>Single-cell</b> technologies<sup>1,2</sup> offer the opportunity to identify new cell types and cellular states</li>
           <li>There are biological and technical challenges that complicate the analysis of <b>single-cell data</b>:
             <ul>
-              <li><u>Problem 1</u>: There is a lack of a complete quantitative understanding of different sorts of <b>noise</b></li>
+              <li><u>Problem 1</u>: a lack of a complete quantitative understanding of different sorts of <b>noise</b></li>
               <li><u>Problem 2</u>: <b>Sparsity</b> of data due to low amounts of amplified genomic material</li>
             </ul>
           </li>
@@ -78,12 +82,17 @@
           </li>
         </ul>
 
-        <h4 id="theory">Random Matrix Theory in 5 Minutes</h4>
+        <h4 id="idea">The Idea</h4>
 
         <p>
         This problem is very similar to one addressed in nuclear physics in the 1950s and later in a variety of complex systems<sup>7</sup>.
-        The statistics of these systems turns out to be described by <b>Random Matrix Theory</b> (RMT). We observed that <u>single-cell data resembles The Wigner Surmise</u>.
+        The statistics of these systems turns out to be described by <b>Random Matrix Theory</b>.
         </p>
+
+        <p>We observed that single-cell data resembles the Wigner Surmise:</p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/wignersurmise.png"></p>        
+
+        <h4 id="theory">Random Matrix Theory in 1 Minute</h4>
 
         <ul>
           <li>For a given single-cell dataset <i>X</i> with <i>N</i> cells and <i>P</i> genes, we can define a Wishart matrix:
@@ -96,18 +105,45 @@
             <br>
             If X is a random matrix, then there are some universal statistical features:
             <ol>
-              <li>Eigenvalue density follows the <b>Marcheko-Pastur</b> (MP) distribution</li>
+              <li>Eigenvalue density follows the <b>Marchenko-Pastur</b> distribution</li>
               <li>The largest eigenvalue is described by the <b>Tracy-Widom</b> distribution</li>
               <li>Eigenvectors are <b>delocalized</b></li>
             </ol>
           </li>
-          <li>Universality means that the statistical features are independent of the gene expression distribution. They only depend on the finiteness of the first few moments<sup>8,9</sup></li>
+          <li><b>Universality</b> means that the statistical features are independent of the gene expression distribution. They only depend on the finiteness of the first few moments<sup>8,9</sup></li>
         </ul>
 
         <h4 id="moredetail">More Detail</h4>
 
-        <p>Deviations from universal eigenvalue distributions indicate the presence of a signal that can be further analyzed.</p>
-        <p>The appearance of localized eigenvectors also indicates the presence of a signal. Sparsity of single-cell data generates an artifactual signal that can be removed by studying the eigenvector statistics.</p>
+        <p><b>Deviations from universal</b> eigenvalue distributions (Marchenko-Pastur) indicate the presence of a <b>signal</b> that can be further analyzed.</p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/signalnoise.png"></p>
+
+        <p>The appearance of localized eigenvectors also indicates the presence of a signal.</p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/loc.png"></p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/deloc.png"></p>
+
+        <p>However, there is a subtlety: <b>part of the signal is an artifact due to the sparsity of the data</b>.</p>
+
+        <p>
+        A way of capturing this artifact is to completely randomize the single-cell matrix.
+        According to the theory explained above, all the eigenvectors should be delocalized and the eigenvalues should follow a Marchenko-Pastur distribution.
+        However, the sparsity of the data modifies this predicted behavior:
+        </p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/eigdist.png"></p>
+
+        <p>We call this artifact <b>sparse induced localization</b>.</p>
+
+        <p>
+        The message to take home is the following:
+        <ul>
+          <li>artifacts due to the sparsity of the data, including sparsity induced localization, account for 3% of the signal eigenvalues on average</li>
+          <li>on average the final 2% of eigenvalues could then be attributed to a true biological signal</li>
+        </ul>
+        </p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/signalnoise2.png"></p>
+
+        <h4 id="examp">An Example</h4>
+
         <p>
         Randomly applies the universality features of Sparse Random Matrix Theory<sup>10,11</sup> to separate noise and signal in a single-cell transcriptomics dataset of 6573 peripheral blood mononuclear cells (PBMC)<sup>12</sup>.
         We have studied the sparsity induced localization to remove sparse signal in the dataset.
@@ -124,6 +160,9 @@
         <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/tsne.png"></p>
 
         <h4 id="inaction">Randomly in Action</h4>
+
+        <p>(mouse cortex)</p>
+
         <p>
           <div id="attachsvg"></div>
           <div id="chart"></div>
