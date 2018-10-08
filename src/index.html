@@ -105,7 +105,7 @@
             <br>
             If X is a random matrix, then there are some universal statistical features:
             <ol>
-              <li>Eigenvalue density follows the <b>Marchenko-Pastur</b> distribution</li>
+              <li>Eigenvalue density follows the <b>Marchenko-Pastur</b> (MP) distribution</li>
               <li>The largest eigenvalue is described by the <b>Tracy-Widom</b> distribution</li>
               <li>Eigenvectors are <b>delocalized</b></li>
             </ol>
@@ -115,32 +115,41 @@
 
         <h4 id="moredetail">More Detail</h4>
 
-        <p><b>Deviations from universal</b> eigenvalue distributions (Marchenko-Pastur) indicate the presence of a <b>signal</b> that can be further analyzed.</p>
-        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/signalnoise.png"></p>
+        <p>
+        <b>Deviations from the universal</b> eigenvalue distribution (Marchenko-Pastur) predicted by Random Matrix Theory indicate the presence of a <b>signal</b> that can be further analyzed:
+        </p>
 
-        <p>The appearance of localized eigenvectors also indicates the presence of a signal.</p>
-        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/loc.png"></p>
-        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/deloc.png"></p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/noisesig2.png"></p>
+
+        <p>Equivalently, the appearance of localized eigenvectors indicates the presence of a signal:</p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/localeig.png"></p>
+        <p>In contrast, the delocalized eigenvectors correspond to noise described by a random matrix:</p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/deloceig.png"></p>
+
+        <p>
+        The delocalized eigenvector component distribution corresponds to the maximum entropy probability density function (PDF), which means that there is no information.
+        On the other hand, the localized eigenvector component distribution doesn't fit this PDF and thus contains information.
+        </p>
 
         <p>However, there is a subtlety: <b>part of the signal is an artifact due to the sparsity of the data</b>.</p>
 
         <p>
         A way of capturing this artifact is to completely randomize the single-cell matrix.
         According to the theory explained above, all the eigenvectors should be delocalized and the eigenvalues should follow a Marchenko-Pastur distribution.
-        However, the sparsity of the data modifies this predicted behavior:
+        However, the sparsity of the data modifies this predicted behavior. We call this artifact <b>sparsity induced localization</b>.
+        In the following plot, we apply a Gaussianity test to identify the localized eigenvectors corresponding to this artifact:
         </p>
         <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/eigdist.png"></p>
 
-        <p>We call this artifact <b>sparse induced localization</b>.</p>
-
         <p>
-        The message to take home is the following:
+        The take-home message is the following:
         <ul>
           <li>artifacts due to the sparsity of the data, including sparsity induced localization, account for 3% of the signal eigenvalues on average</li>
-          <li>on average the final 2% of eigenvalues could then be attributed to a true biological signal</li>
+          <li>on average, the final 2% of eigenvalues could then be attributed to a true biological signal</li>
+          <li>universality of random matrix theory guarantees the validity of the method regardless of the single-cell technology:</li>
         </ul>
         </p>
-        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/signalnoise2.png"></p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/bars.png"></p>
 
         <h4 id="examp">An Example</h4>
 
