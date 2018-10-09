@@ -40,12 +40,10 @@
         <a class="button u-full-width" href="#inaction">Randomly Interactive Demo</a>
         <a class="button u-full-width" href="#cite">Citation</a>
         <a class="button u-full-width" href="#refs">References</a>
-        <!--
         <a class="button u-full-width" href="https://github.com/RabadanLab/randomly">
           <span>Github</span>
           <img alt="Randomly on Github" src="https://s3.amazonaws.com/randomly-static/img/github-mark.svg" style="width:25px"/>
         </a>
-        -->
         <div class="row" style="padding-bottom: 5%"> </div>
         <div class="row" style="padding-bottom: 5%"> </div>
       </div> <!-- three columns -->
@@ -55,7 +53,7 @@
 
         <p><strong>Randomly</strong> is a python package from the <a href="https://rabadan.c2b2.columbia.edu/">Rabadan Lab</a> for denoising single-cell data using <b>Random Matrix Theory</b>.</p>
 
-        <p>Randomly will soon be freely available on github (we're just finalizing the code. <i>Stay tuned!)</i></p>
+        <p>Randomly is <a href="https://github.com/RabadanLab/randomly">available on github</a>. The instructions for downloading and installing it are given there.</p>
 
         <h4 id="intro">Overview of the Problem</h4>
 
@@ -202,6 +200,7 @@
 
         <p>
         The following demo shows a t-SNE visualization of phenotypes of mouse-cortex cells provided in [14].
+        The clustering of cells is modified by changing the t-SNE parameters and principle eigen-components involved.
         </p>
 
         <p>
@@ -209,13 +208,13 @@
           <div id="chart"></div>
           <div id="menu">
             <div>
-              Perplexity: <span id="perpVal"></span>
+              t-SNE perplexity: <span id="perpVal"></span>
             </div>
             <br>
             <div class="slider" id="perpSlider"></div>
             <br>
             <div>
-              lambda range: <span id="lambda1Val"></span> - <span id="lambda2Val"></span>
+              pinciple eigenvalues range: <span id="lambda1Val"></span> - <span id="lambda2Val"></span>
             </div>
             <br>
             <div class="slider" id="lambdaSlider"></div>
@@ -225,6 +224,8 @@
             <button type="button" onclick="interval_stop()">stop</button>
           </div>
         </p>
+
+        <p>As we sweep across the range of eigenvalues, we can obtain either structured or completely random distributions.</p>
 
         <h4 id="cite">Citation</h4>
 
