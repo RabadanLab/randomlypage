@@ -3,6 +3,16 @@ import './katex.css';
 
 export default function renderMath() {
 
+  var elt0 = document.getElementById("eqn0");
+  katex.render("P(s) = {e}^{-s}", elt0, {
+    throwOnError: false
+  });
+
+  var elt01 = document.getElementById("eqn01");
+  katex.render("P(s) \\approx {\\frac{1}{2}}{\\pi}{s}{e}^{-{\\frac{\\pi{s}^2}{4}}}", elt01, {
+    throwOnError: false
+  });
+
   var elt1 = document.getElementById("eqn1");
   katex.render("W = {\\frac{1}{P}}*{XX}^T", elt1, {
     throwOnError: false

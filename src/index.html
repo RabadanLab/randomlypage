@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="../Skeleton-2.0.4/css/skeleton.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
 </head>
@@ -36,6 +38,7 @@
         <a class="button u-full-width" href="#idea">The Idea</a>
         <a class="button u-full-width" href="#theory">Random Matrix Theory in 1 Minute</a>
         <a class="button u-full-width" href="#moredetail">More Detail</a>
+        <a class="button u-full-width" href="#takeaway">The Takeaway</a>
         <a class="button u-full-width" href="#examp">An Example</a>
         <a class="button u-full-width" href="#inaction">Randomly Interactive Demo</a>
         <a class="button u-full-width" href="#cite">Citation</a>
@@ -53,7 +56,10 @@
 
         <p><strong>Randomly</strong> is a python package from the <a href="https://rabadan.c2b2.columbia.edu/">Rabadan Lab</a> for denoising single-cell data using <b>Random Matrix Theory</b>.</p>
 
-        <p>Randomly is <a href="https://github.com/RabadanLab/randomly">available on github</a>. The instructions for downloading and installing it are given there.</p>
+        <p>
+        Randomly is <a href="https://github.com/RabadanLab/randomly">available on github</a> in beta.
+        The instructions for downloading and installing it are given there.
+        </p>
 
         <h4 id="intro">Overview of the Problem</h4>
 
@@ -85,11 +91,57 @@
 
         <p>
         This problem is very similar to one addressed in nuclear physics in the 1950s and later in a variety of complex systems<sup>7</sup>.
-        The statistics of these systems turns out to be described by <b>Random Matrix Theory</b>.
+        The physicist Eugene Wigner was interested in studying the energy spectra of heavy nuclei, such as uranium.
+        Neutron scattering experiments revealed that the energy levels appear as peaks of the diffusion rate of neutrons as a function of the energy.
+        This is shown in [15]:
+        </p>
+        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/uranium238.png"></p>
+        
+        <p>
+        In the absence of any nuclear theory to explain this, Wigner became interested in studying the statistical distribution of the distance, <i>s</i>, between neighboring energy peaks.
+        If the positions of the peaks were uncorrelated random numbers, then the distribution of distances should follow a Poisson law:
+        <div id="eqn0" class="centerme"></div>
+        <br>
+        However, what Wigner found was that the statistical distribution is given by:
+        <br><br>
+        <div id="eqn01" class="centerme"></div>
+        <br>
+        showing that the energy peaks were highly correlated.
+        This is known as the <b>Wigner Surmise</b>.
+        The following figure from [16] illustrates this:
+        <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/wignersurmise0.png">
         </p>
 
-        <p>We observed that single-cell data resembles the Wigner Surmise:</p>
-        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/wignersurmise.png"></p>        
+        <p>
+        Wigner further postulated that his surmise is <b>universal</b> in the sense that it applies to any large, complicated quantum system regardless of the details of that system.        
+        </p>
+
+        <p>
+        Later, starting in the 1960s, works by Dyson, Gaudin, Mehta, and others demonstrated that the Wigner Surmise is a consequence of the universality of <b>Random Matrix Theory</b>.
+        Technically speaking, the eigenvalue statistics are independent of the distribution used to generate the matrix elements.
+        </p>
+
+        <p>
+        Recently, <b>Random Matrix Theory</b> has found applications in a diverse range of complex physical and mathematical systems, including zeros of the Riemann Zeta Function, quantum chaotic systems, string theory, transport in disordered systems, crystal growth, telecommunications, neuroscience...
+        </p>
+
+        <p>
+        For the first time, we have extended this to the field of genomics.
+        We observe that single-cell data resembles the Wigner Surmise:
+        <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/wignersurmise.png">
+        </p>
+
+        <p>
+        As Dyson observed in [7], Random Matrix Theory is a
+
+        <blockquote style="padding-right: 30px; padding-left: 30px;">
+        <i>
+        “black box in which a large number of particles are interacting according to unknown laws.”
+        </i>  
+        </blockquote>
+
+        Happily, this is the essence of <b>Sytems Biology</b>, which studies systems with a large number of components, such as genes, bio-molecules or cells, interacting according to unknown laws. 
+        </p>
 
         <h4 id="theory">Random Matrix Theory in 1 Minute</h4>
 
@@ -141,14 +193,24 @@
         <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/eigdist.png"></p>
 
         <p>
+        Eigenvector localization, which is an example of Anderson localization, is present in many physical systems, but has never before been reported in biological data.
+        </p>
+
+        <h4 id="takeaway">The Takeaway</h4>
+
+        <p>
         The take-home message is the following:
         <ul>
           <li>artifacts due to the sparsity of the data, including sparsity induced localization, account for 3% of the signal eigenvalues on average</li>
           <li>on average, the final 2% of eigenvalues could then be attributed to a true biological signal</li>
-          <li>universality of random matrix theory guarantees the validity of the method regardless of the single-cell technology:</li>
+          <li>
+            universality of random matrix theory guarantees the validity of the method regardless of the single-cell technology:
+            <br>
+            <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/bars.png">
+          </li>
+          <li>Sparse Random Matrix Theory and eigenvalue localization provides an underlying mathematical framework to study many biological phenomena at the single-cell level</li>
         </ul>
         </p>
-        <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/bars.png"></p>
 
         <h4 id="examp">An Example</h4>
 
@@ -183,6 +245,8 @@
         We have projected out the noise and selected the top 1,000 genes most responsible for signal according to the step just described.
         We use these projected genes to do a standard hierarchical clustering and visualize it using t-SNE.
         We compare our clustering with the cell labels provided in references [12] and [13].
+        <br>
+        <br>
         <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/clustering.png">
         </p>
 
@@ -257,6 +321,8 @@
           <li>H. M. Kang et al., Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. <i>Nat Biotechnol</i> <b>36</b>, 89-94 (2018)</li>
           <li>A. Butler, P. Hoffman, P. Smibert, E. Papalexi, R. Satija, Integrating single-cell transcriptomic data across different conditions, technologies, and species. <i>Nature Biotechnology</i> <b>36</b>, 411-+ (2018)</li>
           <li>Amit Zeisel, Ana B. Muñoz-Manchado, Simone Codeluppi et al. Cell types in the mouse cortex and hippocampus revealed by single-cell rna-seq. <i>Science</i>, <b>347(6226)</b> 1138–1142, 2015</li>
+          <li>J.B. Garg, J. Rainwater, J.S. Petersen and W.W. Havens, Jr., <i>Phys. Rev.</i> <b>134</b> (1964) B985</li>
+          <li>O. Bohigas, R.U. Haq, and A. Pandey, in <i>Nuclear Data for Science and Technology</i>, K.H. Bochhoff (ed.), Reidel, Dordrecht (1983), p.809</li>
         </ol>
 
       </div> <!-- nine columns -->
