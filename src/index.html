@@ -64,8 +64,8 @@
         <h4 id="intro">Overview of the Problem</h4>
 
         <ul>
-          <li>Characterizing the different cell subtypes in <b>heterogenous populations</b> and their evolution plays a central role in understanding complex systems like <b>cancer</b> or <b>immune cells</b></li>
-          <li><b>Single-cell</b> technologies<sup>1,2</sup> offer the opportunity to identify new cell types and cellular states</li>
+          <li>Characterizing the different cell subtypes in <b>heterogeneous populations</b> and their evolution plays a central role in understanding complex systems like <b>cancer</b> or <b>immune cells</b>.</li>
+          <li><b>Single-cell</b> technologies<sup>1,2</sup> offer the opportunity to identify new cell types and cellular states.</li>
           <li>There are biological and technical challenges that complicate the analysis of <b>single-cell data</b>:
             <ul>
               <li><u>Problem 1</u>: a lack of a complete quantitative understanding of different sorts of <b>noise</b></li>
@@ -78,7 +78,7 @@
               <li><i>Zero-inflated dimensionality reduction</i>: a modified-PCA method modeling the underlying distribution<sup>5,6</sup></li>
             </ol>
           </li>
-          <li>However, these methods make assumptions about gene expression distributions that are not well justified and may generate artifacts</li>
+          <li>However, these methods make assumptions about gene expression distributions that are not well justified and may generate artifacts.</li>
           <li>To remedy this, Randomly develops a method for denoising single-cell data in a universal way:
             <ul>
               <li><u>Objective 1</u>: develop a statistical description of the noise in single-cell data that is insensitive to the specific details of gene expression in cells</li>
@@ -117,12 +117,12 @@
         </p>
 
         <p>
-        Later, starting in the 1960s, works by Dyson, Gaudin, Mehta, and others demonstrated that the Wigner Surmise is a consequence of the universality of <b>Random Matrix Theory</b>.
+        Later, starting in the 1960s, works by Dyson, Gaudin, Mehta, and others demonstrated that the Wigner Surmise is a consequence of the <b>universality</b> of <b>Random Matrix Theory</b>.
         Technically speaking, the eigenvalue statistics are independent of the distribution used to generate the matrix elements.
         </p>
 
         <p>
-        Recently, <b>Random Matrix Theory</b> has found applications in a diverse range of complex physical and mathematical systems, including zeros of the Riemann Zeta Function, quantum chaotic systems, string theory, transport in disordered systems, crystal growth, telecommunications, neuroscience...
+        Recently, <a href="https://www.quantamagazine.org/the-universal-pattern-popping-up-in-math-physics-and-biology-20180823/"><b>Random Matrix Theory</b> has found applications in a diverse range of complex physical and mathematical systems</a>, including zeros of the Riemann Zeta Function, quantum chaotic systems, quantum chromodynamics, string theory, cosmology, transport in disordered systems, crystal growth, telecommunications, finance theory, and neuroscience...
         </p>
 
         <p>
@@ -132,7 +132,7 @@
         </p>
 
         <p>
-        As Dyson observed in [7], Random Matrix Theory is a
+        As Dyson observed in [7], the complex systems described by Random Matrix Theory are a
 
         <blockquote style="padding-right: 30px; padding-left: 30px;">
         <i>
@@ -140,7 +140,7 @@
         </i>  
         </blockquote>
 
-        Happily, this is the essence of <b>Sytems Biology</b>, which studies systems with a large number of components, such as genes, bio-molecules or cells, interacting according to unknown laws. 
+        Happily, this is the essence of <b>Systems Biology</b>, which studies systems with a large number of components, such as genes, bio-molecules or cells, interacting according to unknown laws.
         </p>
 
         <h4 id="theory">Random Matrix Theory in 1 Minute</h4>
@@ -187,7 +187,7 @@
         <p>
         A way of capturing this artifact is to completely randomize the single-cell matrix.
         According to the theory explained above, all the eigenvectors should be delocalized and the eigenvalues should follow a Marchenko-Pastur distribution.
-        However, the sparsity of the data modifies this predicted behavior. We call this artifact <b>sparsity induced localization</b>.
+        However, the sparsity of the data modifies this predicted behavior. We call this artifact <b>sparsity induced eigenvector localization</b>.
         In the following plot, we apply a Gaussianity test to identify the localized eigenvectors corresponding to this artifact:
         </p>
         <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/eigdist.png"></p>
@@ -201,14 +201,14 @@
         <p>
         The take-home message is the following:
         <ul>
-          <li>artifacts due to the sparsity of the data, including sparsity induced localization, account for 3% of the signal eigenvalues on average</li>
-          <li>on average, the final 2% of eigenvalues could then be attributed to a true biological signal</li>
+          <li>Artifacts due to the sparsity of the data, including sparsity induced eigenvector localization, account for 3% of the signal eigenvalues on average.</li>
+          <li>On average, the final 2% of eigenvalues could then be attributed to a true biological signal.</li>
           <li>
-            universality of random matrix theory guarantees the validity of the method regardless of the single-cell technology:
+            Universality of random matrix theory guarantees the validity of the method regardless of the single-cell technology:
             <br>
             <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/bars.png">
           </li>
-          <li>Sparse Random Matrix Theory and eigenvalue localization provides an underlying mathematical framework to study many biological phenomena at the single-cell level</li>
+          <li>Sparse Random Matrix Theory and eigenvector localization provides an underlying mathematical framework to study many biological phenomena at the single-cell level.</li>
         </ul>
         </p>
 
@@ -230,7 +230,7 @@
           </li>
 
           <li>
-          Removal of the sparse signal in the dataset by studying the sparsity induced localization
+          Removal of the sparse signal in the dataset by studying the sparsity induced eigenvector localization
           </li>
 
           <li>
@@ -264,7 +264,7 @@
 
         <p>
         The following demo shows a t-SNE visualization of phenotypes of mouse-cortex cells provided in [14].
-        The clustering of cells is modified by changing the t-SNE parameters and principle eigen-components involved.
+        The clustering of cells is modified by changing the t-SNE parameters and principal eigen-components involved.
         </p>
 
         <p>
@@ -278,7 +278,7 @@
             <div class="slider" id="perpSlider"></div>
             <br>
             <div>
-              pinciple eigenvalues range: <span id="lambda1Val"></span> - <span id="lambda2Val"></span>
+              principal eigenvalues range: <span id="lambda1Val"></span> - <span id="lambda2Val"></span>
             </div>
             <br>
             <div class="slider" id="lambdaSlider"></div>
@@ -303,6 +303,8 @@
         Luis Aparicio, Mykola Bordyuh, Andrew J. Blumberg, Raul Rabadan.
         <br>
         <a href="https://www.biorxiv.org/content/early/2018/10/05/426239"><i>biorXiv preprint</i> doi.org/10.1101/426239 (2018)</a>.
+        <br>
+        <a href="https://arxiv.org/abs/1810.03602"><i>arXiv preprint</i> arXiv:1810.03602 (2018)</a>.
         </p>
 
         <h4 id="refs">References</h4>

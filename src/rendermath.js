@@ -14,7 +14,7 @@ export default function renderMath() {
   });
 
   var elt1 = document.getElementById("eqn1");
-  katex.render("W = {\\frac{1}{P}}*{XX}^T", elt1, {
+  katex.render("W = {\\frac{1}{P}}{XX}^T", elt1, {
     throwOnError: false
   });
 
