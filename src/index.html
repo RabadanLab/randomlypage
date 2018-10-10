@@ -65,7 +65,7 @@
 
         <ul>
           <li>Characterizing the different cell subtypes in <b>heterogeneous populations</b> and their evolution plays a central role in understanding complex systems like <b>cancer</b> or <b>immune cells</b>.</li>
-          <li><b>Single-cell</b> technologies<sup>1,2</sup> offer the opportunity to identify new cell types and cellular states.</li>
+	  <li><b>Single-cell</b> technologies<sup><a href="#footnote1">1</a>,<a href="#footnote2">2</a></sup> offer the opportunity to identify new cell types and cellular states.</li>
           <li>There are biological and technical challenges that complicate the analysis of <b>single-cell data</b>:
             <ul>
               <li><u>Problem 1</u>: a lack of a complete quantitative understanding of different sorts of <b>noise</b></li>
@@ -74,8 +74,8 @@
           </li>
           <li>Currently, there are two main methods to address these challenges:
             <ol>
-              <li><i>Imputation of missing values</i>: try to infer the “true” expression of data samples by modeling the underlying distributions<sup>3,4</sup></li>
-              <li><i>Zero-inflated dimensionality reduction</i>: a modified-PCA method modeling the underlying distribution<sup>5,6</sup></li>
+              <li><i>Imputation of missing values</i>: try to infer the “true” expression of data samples by modeling the underlying distributions<sup><a href="#footnote3">3</a>,<a href="#footnote4">4</a></sup></li>
+              <li><i>Zero-inflated dimensionality reduction</i>: a modified-PCA method modeling the underlying distribution<sup><a href="#footnote5">5</a>,<a href="#footnote6">6</a></sup></li>
             </ol>
           </li>
           <li>However, these methods make assumptions about gene expression distributions that are not well justified and may generate artifacts.</li>
@@ -90,10 +90,10 @@
         <h4 id="idea">The Idea</h4>
 
         <p>
-        This problem is very similar to one addressed in nuclear physics in the 1950s and later in a variety of complex systems<sup>7</sup>.
+        This problem is very similar to one addressed in nuclear physics in the 1950s and later in a variety of complex systems<sup><a href="#footnote7">7</a></sup>.
         The physicist Eugene Wigner was interested in studying the energy spectra of heavy nuclei, such as uranium.
         Neutron scattering experiments revealed that the energy levels appear as peaks of the diffusion rate of neutrons as a function of the energy.
-        This is shown in [15]:
+        This is shown in J.B. Garg et al.<sup><a href="#footnote15">15</a></sup>:
         </p>
         <p><img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/uranium238.png"></p>
         
@@ -108,7 +108,7 @@
         <br>
         showing that the energy peaks were highly correlated.
         This is known as the <b>Wigner Surmise</b>.
-        The following figure from [16] illustrates this:
+        The following figure from O. Bohigas et al.<sup><a href="#footnote16">16</a></sup> illustrates this:
         <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/wignersurmise0.png">
         </p>
 
@@ -132,7 +132,7 @@
         </p>
 
         <p>
-        As Dyson observed in [7], the complex systems described by Random Matrix Theory are a
+        As Dyson observed<sup><a href="#footnote7">7</a></sup>, the complex systems described by Random Matrix Theory are a
 
         <blockquote style="padding-right: 30px; padding-left: 30px;">
         <i>
@@ -161,7 +161,7 @@
               <li>Eigenvectors are <b>delocalized</b></li>
             </ol>
           </li>
-          <li><b>Universality</b> means that the statistical features are independent of the gene expression distribution. They only depend on the finiteness of the first few moments<sup>8,9</sup></li>
+          <li><b>Universality</b> means that the statistical features are independent of the gene expression distribution. They only depend on the finiteness of the first few moments<sup><a href="#footnote8">8</a>,<a href="#footnote9">9</a></sup></li>
         </ul>
 
         <h4 id="moredetail">More Detail</h4>
@@ -215,11 +215,11 @@
         <h4 id="examp">An Example</h4>
 
         <p>
-        As an example, we consider single-cell transcriptomic data from a set of 6,573 peripheral blood mononuclear cells (PBMC)<sup>12</sup>.
+        As an example, we consider single-cell transcriptomic data from a set of 6,573 peripheral blood mononuclear cells (PBMC)<sup><a href="#footnote12">12</a></sup>.
         </p>
 
         <p>
-        Randomly applies the universality features of Sparse Random Matrix Theory<sup>10,11</sup> to separate noise and signal in single-cell data.
+        Randomly applies the universality features of Sparse Random Matrix Theory<sup><a href="#footnote10">10</a>,<a href="#footnote11">11</a></sup> to separate noise and signal in single-cell data.
         The Randomly analysis consists of three main steps:
         </p>
 
@@ -244,7 +244,7 @@
         <p>
         We have projected out the noise and selected the top 1,000 genes most responsible for signal according to the step just described.
         We use these projected genes to do a standard hierarchical clustering and visualize it using t-SNE.
-        We compare our clustering with the cell labels provided in references [12] and [13].
+        We compare our clustering with the cell labels provided by Kang<sup><a href="#footnote12">12</a></sup> and Butler<sup><a href="#footnote13">13</a></sup>.
         <br>
         <br>
         <img class="imgstyle1" src="https://s3.amazonaws.com/randomly-static/img/clustering.png">
@@ -253,7 +253,7 @@
         <p>
         We compare the performance of Randomly (RMT) with other algorithms in terms of cell-phenotype cluster resolution.
         For completeness, we also compare with the raw data and with a selection of the top 300 genes based on highest variance (300 mvg).
-        Provided known cell-phenotypes from [13], the mean silhouette score quantifies the cluster resolution.
+        Provided known cell-phenotypes from Butler<sup><a href="#footnote13">13</a></sup>, the mean silhouette score quantifies the cluster resolution.
         The comparison is performed as a function of the reduced-space number of dimensions (number of principal components).
         <br>
         <br>
@@ -263,7 +263,7 @@
         <h4 id="inaction">Randomly Interactive Demo</h4>
 
         <p>
-        The following demo shows a t-SNE visualization of phenotypes of mouse-cortex cells provided in [14].
+        The following demo shows a t-SNE visualization of phenotypes of mouse-cortex cells provided in Zeisel et al.<sup><a href="#footnote14">14</a></sup>
         The clustering of cells is modified by changing the t-SNE parameters and principal eigen-components involved.
         </p>
 
@@ -309,22 +309,22 @@
 
         <h4 id="refs">References</h4>
         <ol>
-          <li>L. Bintu et al., Dynamics of epigenetic regulation at the single-cell level. <i>Science</i> <b>351</b>, 720-724 (2016)</li>
-          <li>J. Cao et al., Comprehensive single-cell transcriptional profiling of a multicellular organism. <i>Science</i> <b>357</b>, 661-667 (2017)</li>
-          <li>D. van Dijk et al., Recovering Gene Interactions from Single-Cell Data Using Data Diffusion. <i>Cell</i> <b>174</b>, 716-+ (2018)</li>
-          <li>W. V. Li, J. Y. J. Li, An accurate and robust imputation method scImpute for single-cell RNA-seq data. <i>Nat Commun</i> <b>9</b>,  (2018)</li>
-          <li>E. Pierson, C. Yau, ZIFA: Dimensionality reduction for zero-inflated single-cell gene expression analysis. <i>Genome Biol</i> <b>16</b>,  (2015)</li>
-          <li>D. Risso, F. Perraudeau, S. Gribkova, S. Dudoit, J. P. Vert, A general and flexible method for signal extraction from single-cell RNA-seq data. <i>Nat Commun</i> <b>9</b>,  (2018)</li>
-          <li>F. J. Dyson, Statistical Theory of Energy Levels of Complex Systems .1. <i>J Math Phys</i> <b>3</b>, 140-& (1962)</li>
-          <li>T. Tao, V. Vu, Random Matrices: Universality of Local Eigenvalue Statistics up to the Edge. <i>Commun Math Phys</i> <b>298</b>, 549-572 (2010)</li>
-          <li>N. S. Pillai, J. Yin, Universality of Covariance Matrices. <i>Ann Appl Probab</i> <b>24</b>, 935-1001 (2014)</li>
-          <li>Y. V. Fyodorov, A. D. Mirlin, Localization in ensemble of sparse random matrices. <i>Phys Rev Lett</i> <b>67</b>, 2049-2052 (1991)</li>
-          <li>S. N. Evangelou, E. N. Economou, Spectral Density Singularities, Level Statistics, and Localization in a Sparse Random Matrix Ensemble. <i>Physical Review Letters</i> <b>68</b>, 361-364 (1992)</li>
-          <li>H. M. Kang et al., Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. <i>Nat Biotechnol</i> <b>36</b>, 89-94 (2018)</li>
-          <li>A. Butler, P. Hoffman, P. Smibert, E. Papalexi, R. Satija, Integrating single-cell transcriptomic data across different conditions, technologies, and species. <i>Nature Biotechnology</i> <b>36</b>, 411-+ (2018)</li>
-          <li>Amit Zeisel, Ana B. Muñoz-Manchado, Simone Codeluppi et al. Cell types in the mouse cortex and hippocampus revealed by single-cell rna-seq. <i>Science</i>, <b>347(6226)</b> 1138–1142, 2015</li>
-          <li>J.B. Garg, J. Rainwater, J.S. Petersen and W.W. Havens, Jr., <i>Phys. Rev.</i> <b>134</b> (1964) B985</li>
-          <li>O. Bohigas, R.U. Haq, and A. Pandey, in <i>Nuclear Data for Science and Technology</i>, K.H. Bochhoff (ed.), Reidel, Dordrecht (1983), p.809</li>
+          <li id="footnote1">L. Bintu et al., Dynamics of epigenetic regulation at the single-cell level. <i>Science</i> <b>351</b>, 720-724 (2016)</li>
+          <li id="footnote2">J. Cao et al., Comprehensive single-cell transcriptional profiling of a multicellular organism. <i>Science</i> <b>357</b>, 661-667 (2017)</li>
+          <li id="footnote3">D. van Dijk et al., Recovering Gene Interactions from Single-Cell Data Using Data Diffusion. <i>Cell</i> <b>174</b>, 716-+ (2018)</li>
+          <li id="footnote4">W. V. Li, J. Y. J. Li, An accurate and robust imputation method scImpute for single-cell RNA-seq data. <i>Nat Commun</i> <b>9</b>,  (2018)</li>
+          <li id="footnote5">E. Pierson, C. Yau, ZIFA: Dimensionality reduction for zero-inflated single-cell gene expression analysis. <i>Genome Biol</i> <b>16</b>,  (2015)</li>
+          <li id="footnote6">D. Risso, F. Perraudeau, S. Gribkova, S. Dudoit, J. P. Vert, A general and flexible method for signal extraction from single-cell RNA-seq data. <i>Nat Commun</i> <b>9</b>,  (2018)</li>
+          <li id="footnote7">F. J. Dyson, Statistical Theory of Energy Levels of Complex Systems .1. <i>J Math Phys</i> <b>3</b>, 140-& (1962)</li>
+          <li id="footnote8">T. Tao, V. Vu, Random Matrices: Universality of Local Eigenvalue Statistics up to the Edge. <i>Commun Math Phys</i> <b>298</b>, 549-572 (2010)</li>
+          <li id="footnote9">N. S. Pillai, J. Yin, Universality of Covariance Matrices. <i>Ann Appl Probab</i> <b>24</b>, 935-1001 (2014)</li>
+          <li id="footnote10">Y. V. Fyodorov, A. D. Mirlin, Localization in ensemble of sparse random matrices. <i>Phys Rev Lett</i> <b>67</b>, 2049-2052 (1991)</li>
+          <li id="footnote11">S. N. Evangelou, E. N. Economou, Spectral Density Singularities, Level Statistics, and Localization in a Sparse Random Matrix Ensemble. <i>Physical Review Letters</i> <b>68</b>, 361-364 (1992)</li>
+          <li id="footnote12">H. M. Kang et al., Multiplexed droplet single-cell RNA-sequencing using natural genetic variation. <i>Nat Biotechnol</i> <b>36</b>, 89-94 (2018)</li>
+          <li id="footnote13">A. Butler, P. Hoffman, P. Smibert, E. Papalexi, R. Satija, Integrating single-cell transcriptomic data across different conditions, technologies, and species. <i>Nature Biotechnology</i> <b>36</b>, 411-+ (2018)</li>
+          <li id="footnote14">Amit Zeisel, Ana B. Muñoz-Manchado, Simone Codeluppi et al. Cell types in the mouse cortex and hippocampus revealed by single-cell rna-seq. <i>Science</i>, <b>347(6226)</b> 1138–1142, 2015</li>
+          <li id="footnote15">J.B. Garg, J. Rainwater, J.S. Petersen and W.W. Havens, Jr., Neutron Resonance Spectroscopy. III. Th 232 and U 238. <i>Phys. Rev.</i> <b>134</b> (1964) B985</li>
+          <li id="footnote16">O. Bohigas, R.U. Haq, and A. Pandey, in <i>Nuclear Data for Science and Technology</i>, K.H. Bochhoff (ed.), Reidel, Dordrecht (1983), p.809</li>
         </ol>
 
       </div> <!-- nine columns -->
