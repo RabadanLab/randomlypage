@@ -23,6 +23,11 @@ module.exports = {
       filename: 'index.html',
       template: 'src/index.html',
       // chunks: ['common', 'print', 'app']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'tutorial.html',
+      template: 'src/tutorial.html',
+      // chunks: ['common', 'print', 'app']
     })
   ],
   output: {
