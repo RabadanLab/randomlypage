@@ -188,9 +188,11 @@ atribute embedding is updated with t-SNE coordinates
         <h2 id="tipsandtricks">Tips and Tricks</h2>
         <h4 id="getinformationabouttheclustering">Get information about the clustering</h4>
         <p>The function <code>model.get_cluster_info()</code> gives information about the clusters produced by the methods described previously:
-            1. The number of cells.
-            2. The 10 (by default) most expressed genes. By using <code>genes = number</code> we can increase the list. For example, <code>genes = 20</code> will give the top 20 genes.
-            3. The function visualizes the genes in the t-SNE.
+          <ol>
+            <li>The number of cells.</li>
+            <li>The 10 (by default) most expressed genes. By using <code>genes = number</code> we can increase the list. For example, <code>genes = 20</code> will give the top 20 genes.</li>
+            <li>The function visualizes the genes in the t-SNE.</li>
+          </ol>
         Here is an example with cluster 1 from the hierarchical clustering we have done before:</p>
         <pre><code class="python language-python">&gt;&gt;&gt; model.get_cluster_info(labels=model.labels_hierarchy, cluster=1)
 The cluster 1 has 49 cells</code></pre>
