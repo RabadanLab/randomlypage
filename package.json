@@ -4,9 +4,8 @@
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
-	"deploy": "gh-pages -d src",
-    "build": "webpack",
-    "start": "webpack-dev-server --open"	
+    "build": "npm run build",
+    "start": "npm start"	
  },
   "keywords": [],
   "author": "",
